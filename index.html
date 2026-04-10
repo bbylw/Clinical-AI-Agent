@@ -48,7 +48,6 @@
         color: #e8efe9;
         overflow-x: hidden;
       }
-
       .gradient-mesh {
         position: absolute;
         inset: 0;
@@ -70,7 +69,6 @@
           );
         pointer-events: none;
       }
-
       .noise-overlay {
         position: fixed;
         inset: 0;
@@ -79,7 +77,6 @@
         pointer-events: none;
         z-index: 9999;
       }
-
       .glow-line {
         height: 1px;
         background: linear-gradient(
@@ -89,7 +86,6 @@
           transparent
         );
       }
-
       .card-hover {
         transition:
           transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -99,7 +95,6 @@
         transform: translateY(-4px);
         box-shadow: 0 12px 40px rgba(52, 211, 153, 0.08);
       }
-
       .pulse-dot {
         animation: pulse-dot 2s ease-in-out infinite;
       }
@@ -114,20 +109,6 @@
           transform: scale(1.5);
         }
       }
-
-      .float-anim {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-
       .fade-in {
         opacity: 0;
         transform: translateY(24px);
@@ -139,7 +120,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
       .stagger-1 {
         transition-delay: 0.1s;
       }
@@ -158,7 +138,6 @@
       .stagger-6 {
         transition-delay: 0.6s;
       }
-
       .tag {
         display: inline-flex;
         align-items: center;
@@ -169,7 +148,6 @@
         font-weight: 500;
         letter-spacing: 0.02em;
       }
-
       .scroll-indicator {
         animation: scroll-bounce 2s ease-in-out infinite;
       }
@@ -184,7 +162,6 @@
           opacity: 1;
         }
       }
-
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -198,14 +175,12 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #2a4035;
       }
-
       .grid-pattern {
         background-image:
           linear-gradient(rgba(52, 211, 153, 0.03) 1px, transparent 1px),
           linear-gradient(90deg, rgba(52, 211, 153, 0.03) 1px, transparent 1px);
         background-size: 60px 60px;
       }
-
       .specialty-card {
         position: relative;
         overflow: hidden;
@@ -229,7 +204,6 @@
       .specialty-card:hover::before {
         opacity: 1;
       }
-
       .timeline-line {
         position: absolute;
         left: 23px;
@@ -242,19 +216,27 @@
           rgba(52, 211, 153, 0.05)
         );
       }
-
       .nav-blur {
         backdrop-filter: blur(16px) saturate(180%);
         -webkit-backdrop-filter: blur(16px) saturate(180%);
       }
-
+      .lang-btn {
+        cursor: pointer;
+        user-select: none;
+        transition:
+          color 0.2s,
+          background 0.2s;
+      }
+      .lang-btn.active {
+        color: #e8efe9;
+        background: rgba(52, 211, 153, 0.15);
+      }
       @media (prefers-reduced-motion: reduce) {
         .fade-in {
           transition: none;
           opacity: 1;
           transform: none;
         }
-        .float-anim,
         .pulse-dot,
         .scroll-indicator {
           animation: none;
@@ -300,19 +282,56 @@
           >
         </a>
         <div class="hidden md:flex items-center gap-8 text-sm text-muted">
-          <a href="#features" class="hover:text-fg transition-colors"
-            >核心能力</a
-          >
-          <a href="#guidelines" class="hover:text-fg transition-colors"
-            >临床指南</a
-          >
-          <a href="#workflow" class="hover:text-fg transition-colors"
-            >工作流程</a
-          >
-          <a href="#templates" class="hover:text-fg transition-colors">模板</a>
-          <a href="#safety" class="hover:text-fg transition-colors">安全机制</a>
+          <a
+            href="#features"
+            class="hover:text-fg transition-colors"
+            data-zh="核心能力"
+            data-en="Features"
+          ></a>
+          <a
+            href="#guidelines"
+            class="hover:text-fg transition-colors"
+            data-zh="临床指南"
+            data-en="Guidelines"
+          ></a>
+          <a
+            href="#workflow"
+            class="hover:text-fg transition-colors"
+            data-zh="工作流程"
+            data-en="Workflow"
+          ></a>
+          <a
+            href="#templates"
+            class="hover:text-fg transition-colors"
+            data-zh="模板"
+            data-en="Templates"
+          ></a>
+          <a
+            href="#safety"
+            class="hover:text-fg transition-colors"
+            data-zh="安全机制"
+            data-en="Safety"
+          ></a>
         </div>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <div
+            class="flex items-center bg-surface border border-border rounded-lg overflow-hidden"
+          >
+            <button
+              onclick="setLang('zh')"
+              id="lang-zh"
+              class="lang-btn active px-2.5 py-1 text-xs font-display font-medium"
+            >
+              中
+            </button>
+            <button
+              onclick="setLang('en')"
+              id="lang-en"
+              class="lang-btn px-2.5 py-1 text-xs font-display font-medium text-muted"
+            >
+              EN
+            </button>
+          </div>
           <a
             href="https://github.com/bbylw/Clinical-AI-Agent"
             target="_blank"
@@ -325,9 +344,6 @@
                 d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
               />
             </svg>
-            <span class="hidden sm:inline text-sm font-display font-medium"
-              >GitHub</span
-            >
           </a>
           <span class="tag bg-accent/10 text-accent border border-accent/20">
             <span class="w-1.5 h-1.5 rounded-full bg-accent pulse-dot"></span>
@@ -354,32 +370,28 @@
         <h1
           class="fade-in stagger-1 font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] text-fg mb-6"
         >
-          Clinical AI<br />
-          <span class="text-accent">Agent</span>
+          Clinical AI<br /><span class="text-accent">Agent</span>
         </h1>
         <p
           class="fade-in stagger-2 max-w-2xl mx-auto text-lg sm:text-xl text-muted leading-relaxed mb-10"
-        >
-          极其成熟、安全、具备实时更新能力的临床医学智能体。<br
-            class="hidden sm:block"
-          />
-          基于15+专科最新循证指南，生成符合指南的个体化治疗方案。
-        </p>
+          data-zh="极其成熟、安全、具备实时更新能力的临床医学智能体。<br class='hidden sm:block' />基于15+专科最新循证指南，生成符合指南的个体化治疗方案。"
+          data-en="An extremely mature, safe, clinical AI agent with real-time update capabilities.<br class='hidden sm:block' />Generates guideline-concordant, individualized treatment plans based on the latest evidence across 15+ specialties."
+        ></p>
         <div
           class="fade-in stagger-3 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
           <a
             href="#features"
             class="px-8 py-3.5 bg-accent text-bg font-display font-semibold rounded-xl hover:bg-accent/90 transition-colors text-sm tracking-wide"
-          >
-            探索核心能力
-          </a>
+            data-zh="探索核心能力"
+            data-en="Explore Features"
+          ></a>
           <a
             href="#workflow"
             class="px-8 py-3.5 bg-surface border border-border text-fg font-display font-medium rounded-xl hover:border-accent/30 transition-colors text-sm tracking-wide"
-          >
-            查看工作流程
-          </a>
+            data-zh="查看工作流程"
+            data-en="View Workflow"
+          ></a>
         </div>
         <div
           class="fade-in stagger-4 flex flex-wrap items-center justify-center gap-3 text-xs text-muted/70"
@@ -421,12 +433,14 @@
           </p>
           <h2
             class="fade-in stagger-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-fg mb-4"
-          >
-            核心能力
-          </h2>
-          <p class="fade-in stagger-2 text-muted text-lg leading-relaxed">
-            从临床笔记到完整治疗方案，AI驱动的全流程循证医学决策支持。
-          </p>
+            data-zh="核心能力"
+            data-en="Core Capabilities"
+          ></h2>
+          <p
+            class="fade-in stagger-2 text-muted text-lg leading-relaxed"
+            data-zh="从临床笔记到完整治疗方案，AI驱动的全流程循证医学决策支持。"
+            data-en="From clinical notes to complete treatment plans — AI-driven, full-process evidence-based decision support."
+          ></p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <div
@@ -451,12 +465,14 @@
             </div>
             <h3
               class="font-display font-semibold text-fg text-lg mb-2 tracking-tight"
-            >
-              AI驱动生成
-            </h3>
-            <p class="text-muted text-sm leading-relaxed">
-              直接从临床笔记或病例描述生成完整治疗方案，无需手动编写。自动识别诊断、生成SMART目标、推荐循证干预。
-            </p>
+              data-zh="AI驱动生成"
+              data-en="AI-Driven Generation"
+            ></h3>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="直接从临床笔记或病例描述生成完整治疗方案，无需手动编写。自动识别诊断、生成SMART目标、推荐循证干预。"
+              data-en="Generate complete treatment plans directly from clinical notes or case descriptions. Automatic diagnosis identification, SMART goal generation, and evidence-based intervention recommendations."
+            ></p>
           </div>
           <div
             class="fade-in stagger-2 card-hover bg-card border border-border rounded-2xl p-7"
@@ -480,13 +496,14 @@
             </div>
             <h3
               class="font-display font-semibold text-fg text-lg mb-2 tracking-tight"
-            >
-              最新指南
-            </h3>
-            <p class="text-muted text-sm leading-relaxed">
-              整合15+医学专科的最新循证指南，涵盖ADA 2026、ACC/AHA 2025、ESC/EAS
-              2025、NCCN 2026等权威来源。
-            </p>
+              data-zh="最新指南"
+              data-en="Latest Guidelines"
+            ></h3>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="整合15+医学专科的最新循证指南，涵盖ADA 2026、ACC/AHA 2025、ESC/EAS 2025、NCCN 2026等权威来源。"
+              data-en="Incorporates the most current evidence-based guidelines across 15+ medical specialties, including ADA 2026, ACC/AHA 2025, ESC/EAS 2025, NCCN 2026, and more."
+            ></p>
           </div>
           <div
             class="fade-in stagger-3 card-hover bg-card border border-border rounded-2xl p-7"
@@ -510,12 +527,14 @@
             </div>
             <h3
               class="font-display font-semibold text-fg text-lg mb-2 tracking-tight"
-            >
-              动态更新
-            </h3>
-            <p class="text-muted text-sm leading-relaxed">
-              使用搜索工具检索快速演进领域的最新FDA/NCCN/EMA/ESMO推荐，解决静态提示词悖论。
-            </p>
+              data-zh="动态更新"
+              data-en="Dynamic Updates"
+            ></h3>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="使用搜索工具检索快速演进领域的最新FDA/NCCN/EMA/ESMO推荐，解决静态提示词悖论。"
+              data-en="Uses search tools to retrieve the latest FDA/NCCN/EMA/ESMO recommendations for rapidly evolving fields, solving the static prompt paradox."
+            ></p>
           </div>
           <div
             class="fade-in stagger-4 card-hover bg-card border border-border rounded-2xl p-7"
@@ -539,12 +558,14 @@
             </div>
             <h3
               class="font-display font-semibold text-fg text-lg mb-2 tracking-tight"
-            >
-              专业模板
-            </h3>
-            <p class="text-muted text-sm leading-relaxed">
-              结构化Markdown模板——单页快速参考卡（首选）与标准综合格式，类似精准肿瘤学报告风格。
-            </p>
+              data-zh="专业模板"
+              data-en="Professional Templates"
+            ></h3>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="结构化Markdown模板——单页快速参考卡（首选）与标准综合格式，类似精准肿瘤学报告风格。"
+              data-en="Structured Markdown templates — one-page quick-reference card (preferred) and standard comprehensive format, similar to precision oncology reports."
+            ></p>
           </div>
           <div
             class="fade-in stagger-5 card-hover bg-card border border-border rounded-2xl p-7"
@@ -568,12 +589,14 @@
             </div>
             <h3
               class="font-display font-semibold text-fg text-lg mb-2 tracking-tight"
-            >
-              药物数据库
-            </h3>
-            <p class="text-muted text-sm leading-relaxed">
-              全面药物信息，包括剂量范围、药物相互作用、禁忌症筛查和不良反应监测。
-            </p>
+              data-zh="药物数据库"
+              data-en="Medication Database"
+            ></h3>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="全面药物信息，包括剂量范围、药物相互作用、禁忌症筛查和不良反应监测。"
+              data-en="Comprehensive drug information with dose ranges, drug interactions, contraindication screening, and adverse event monitoring."
+            ></p>
           </div>
           <div
             class="fade-in stagger-6 card-hover bg-card border border-border rounded-2xl p-7"
@@ -597,12 +620,14 @@
             </div>
             <h3
               class="font-display font-semibold text-fg text-lg mb-2 tracking-tight"
-            >
-              隐私与安全
-            </h3>
-            <p class="text-muted text-sm leading-relaxed">
-              内置PHI检测和去识别，符合HIPAA合规要求。全面的药物相互作用检查和禁忌症筛查。
-            </p>
+              data-zh="隐私与安全"
+              data-en="Privacy & Safety"
+            ></h3>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="内置PHI检测和去识别，符合HIPAA合规要求。全面的药物相互作用检查和禁忌症筛查。"
+              data-en="Built-in PHI detection and de-identification for HIPAA compliance. Comprehensive drug interaction checks and contraindication screening."
+            ></p>
           </div>
         </div>
       </div>
@@ -620,12 +645,14 @@
           </p>
           <h2
             class="fade-in stagger-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-fg mb-4"
-          >
-            涵盖15+专科临床指南
-          </h2>
-          <p class="fade-in stagger-2 text-muted text-lg leading-relaxed">
-            整合最新权威循证指南，覆盖从内科到外科、从儿科到老年医学的全专科领域。
-          </p>
+            data-zh="涵盖15+专科临床指南"
+            data-en="15+ Specialty Guidelines"
+          ></h2>
+          <p
+            class="fade-in stagger-2 text-muted text-lg leading-relaxed"
+            data-zh="整合最新权威循证指南，覆盖从内科到外科、从儿科到老年医学的全专科领域。"
+            data-en="Integrating the latest authoritative evidence-based guidelines, covering all specialties from internal medicine to surgery, pediatrics to geriatrics."
+          ></p>
         </div>
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
@@ -643,16 +670,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  糖尿病管理
-                </h4>
+                  data-zh="糖尿病管理"
+                  data-en="Diabetes"
+                ></h4>
                 <p class="text-muted text-xs">ADA 2026</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              二甲双胍一线；CVD患者首选GLP-1
-              RA；CKD患者首选SGLT2i；个体化HbA1c目标
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="二甲双胍一线；CVD患者首选GLP-1 RA；CKD患者首选SGLT2i；个体化HbA1c目标"
+              data-en="Metformin first-line; GLP-1 RA preferred for CVD; SGLT2i preferred for CKD; Individualized HbA1c targets"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -667,15 +695,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  高血压管理
-                </h4>
+                  data-zh="高血压管理"
+                  data-en="Hypertension"
+                ></h4>
                 <p class="text-muted text-xs">AHA/ACC 2025</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              CAD/CKD首选ACEI/ARB；目标&lt;130/80；2期高血压初始单片联合；老年个体化
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="CAD/CKD首选ACEI/ARB；目标&lt;130/80；2期高血压初始单片联合；老年个体化"
+              data-en="ACEI/ARB preferred for CAD/CKD; Target &lt;130/80; SPC for Stage 2; Individualized for elderly"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -690,16 +720,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  血脂管理
-                </h4>
+                  data-zh="血脂管理"
+                  data-en="Lipids"
+                ></h4>
                 <p class="text-muted text-xs">ACC/AHA 2026 / ESC/EAS 2025</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              极高危&lt;55
-              mg/dL；阶梯式：他汀→依折麦布→PCSK9i；Lp(a)终身筛查一次
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="极高危&lt;55 mg/dL；阶梯式：他汀→依折麦布→PCSK9i；Lp(a)终身筛查一次"
+              data-en="Very high risk &lt;55 mg/dL; Stepwise: Statin→Ezetimibe→PCSK9i; Lp(a) screening once in lifetime"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -714,15 +745,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  心脏病学
-                </h4>
+                  data-zh="心脏病学"
+                  data-en="Cardiology"
+                ></h4>
                 <p class="text-muted text-xs">ACC/AHA 2024-2025</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              心衰：ARNI优先+SGLT2i；房颤：DOAC优先；ACS：DAPT+高强度他汀
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="心衰：ARNI优先+SGLT2i；房颤：DOAC优先；ACS：DAPT+高强度他汀"
+              data-en="HF: ARNI preferred + SGLT2i; AF: DOAC preferred; ACS: DAPT + high-intensity statin"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -737,15 +770,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  肿瘤学
-                </h4>
+                  data-zh="肿瘤学"
+                  data-en="Oncology"
+                ></h4>
                 <p class="text-muted text-xs">NCCN 2026</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              乳腺癌、肺癌、前列腺癌、淋巴瘤等；靶向治疗与免疫治疗；分子检测标准
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="乳腺癌、肺癌、前列腺癌、淋巴瘤等；靶向治疗与免疫治疗；分子检测标准"
+              data-en="Breast, Lung, Prostate, Lymphoma & more; Targeted therapy & immunotherapy; Molecular testing standards"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -760,15 +795,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  肾脏病学
-                </h4>
+                  data-zh="肾脏病学"
+                  data-en="Nephrology"
+                ></h4>
                 <p class="text-muted text-xs">KDIGO 2024</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              CKD分期G1-G5+A1-A3；SGLT2i用于eGFR 20-45；贫血：先补铁后ESA
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="CKD分期G1-G5+A1-A3；SGLT2i用于eGFR 20-45；贫血：先补铁后ESA"
+              data-en="CKD G1-G5 + A1-A3; SGLT2i for eGFR 20-45; Anemia: Iron first, then ESA"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -783,15 +820,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  产科
-                </h4>
+                  data-zh="产科"
+                  data-en="Obstetrics"
+                ></h4>
                 <p class="text-muted text-xs">ACOG 2024 / SMFM</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              慢性HTN目标&lt;140/90；子痫前期MgSO4；避免ACEi/ARBs/他汀/华法林
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="慢性HTN目标&lt;140/90；子痫前期MgSO4；避免ACEi/ARBs/他汀/华法林"
+              data-en="Chronic HTN target &lt;140/90; Preeclampsia: MgSO4; Avoid ACEi/ARBs/Statins/Warfarin"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -806,15 +845,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  儿科
-                </h4>
+                  data-zh="儿科"
+                  data-en="Pediatrics"
+                ></h4>
                 <p class="text-muted text-xs">AAP 2023-2024</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              按体重给药mg/kg；高血压≥95百分位；哮喘阶梯治疗；T2DM二甲双胍一线
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="按体重给药mg/kg；高血压≥95百分位；哮喘阶梯治疗；T2DM二甲双胍一线"
+              data-en="Weight-based dosing mg/kg; HTN ≥95th percentile; Asthma step therapy; T2DM metformin first-line"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -829,15 +870,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  呼吸系统
-                </h4>
+                  data-zh="呼吸系统"
+                  data-en="Respiratory"
+                ></h4>
                 <p class="text-muted text-xs">GOLD 2025 / ATS 2024</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              COPD：戒烟+LAMA/LABA；哮喘：ICS控制器优于SABA；PE风险分层
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="COPD：戒烟+LAMA/LABA；哮喘：ICS控制器优于SABA；PE风险分层"
+              data-en="COPD: Smoking cessation + LAMA/LABA; Asthma: ICS controller over SABA; PE risk-stratified"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -852,15 +895,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  风湿病学
-                </h4>
+                  data-zh="风湿病学"
+                  data-en="Rheumatology"
+                ></h4>
                 <p class="text-muted text-xs">ACR 2019-2021</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              RA：达标治疗+甲氨蝶呤；OA：外用NSAIDs首选；痛风：尿酸&lt;6 mg/dL
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="RA：达标治疗+甲氨蝶呤；OA：外用NSAIDs首选；痛风：尿酸&lt;6 mg/dL"
+              data-en="RA: Treat-to-target + MTX; OA: Topical NSAIDs first; Gout: Uric acid &lt;6 mg/dL"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -875,15 +920,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  神经病学
-                </h4>
+                  data-zh="神经病学"
+                  data-en="Neurology"
+                ></h4>
                 <p class="text-muted text-xs">AAN 2023-2024</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              卒中：DAPT+取栓；癫痫：一线AEDs；MS：早期DMTs；PD：左旋多巴
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="卒中：DAPT+取栓；癫痫：一线AEDs；MS：早期DMTs；PD：左旋多巴"
+              data-en="Stroke: DAPT + thrombectomy; Epilepsy: First-line AEDs; MS: Early DMTs; PD: Levodopa"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -898,15 +945,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  感染性疾病
-                </h4>
+                  data-zh="感染性疾病"
+                  data-en="Infectious Disease"
+                ></h4>
                 <p class="text-muted text-xs">IDSA 2023-2024</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              肺炎：当地耐药模式；UTI：硝基呋喃妥因一线；脓毒症：1小时集束化
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="肺炎：当地耐药模式；UTI：硝基呋喃妥因一线；脓毒症：1小时集束化"
+              data-en="Pneumonia: Local resistance patterns; UTI: Nitrofurantoin first-line; Sepsis: 1-hour bundle"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -921,15 +970,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  精神病学
-                </h4>
+                  data-zh="精神病学"
+                  data-en="Psychiatry"
+                ></h4>
                 <p class="text-muted text-xs">APA 2022-2024</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              抑郁：SSRIs一线；焦虑：SSRIs/SNRIs；双相：情绪稳定剂；精神分裂：SGAs
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="抑郁：SSRIs一线；焦虑：SSRIs/SNRIs；双相：情绪稳定剂；精神分裂：SGAs"
+              data-en="Depression: SSRIs first-line; Anxiety: SSRIs/SNRIs; Bipolar: Mood stabilizers; Schizophrenia: SGAs"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -944,15 +995,17 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  老年病学
-                </h4>
+                  data-zh="老年病学"
+                  data-en="Geriatrics"
+                ></h4>
                 <p class="text-muted text-xs">AGS Beers 2023</p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              避免抗胆碱能药/苯二氮卓/哌替啶；处方精简；跌倒预防多因素干预
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="避免抗胆碱能药/苯二氮卓/哌替啶；处方精简；跌倒预防多因素干预"
+              data-en="Avoid anticholinergics/benzodiazepines/meperidine; Deprescribing; Falls prevention"
+            ></p>
           </div>
           <div
             class="fade-in specialty-card card-hover bg-card border border-border rounded-xl p-5"
@@ -967,15 +1020,21 @@
               <div>
                 <h4
                   class="font-display font-semibold text-fg text-sm tracking-tight"
-                >
-                  更多专科
-                </h4>
-                <p class="text-muted text-xs">持续扩展</p>
+                  data-zh="更多专科"
+                  data-en="More Specialties"
+                ></h4>
+                <p
+                  class="text-muted text-xs"
+                  data-zh="持续扩展"
+                  data-en="Continuously expanding"
+                ></p>
               </div>
             </div>
-            <p class="text-muted text-xs leading-relaxed">
-              康复治疗、围手术期、疼痛管理、慢性病管理等专科持续纳入最新指南
-            </p>
+            <p
+              class="text-muted text-xs leading-relaxed"
+              data-zh="康复治疗、围手术期、疼痛管理、慢性病管理等专科持续纳入最新指南"
+              data-en="Rehabilitation, perioperative, pain management, chronic disease management and more continuously added"
+            ></p>
           </div>
         </div>
       </div>
@@ -993,12 +1052,14 @@
           </p>
           <h2
             class="fade-in stagger-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-fg mb-4"
-          >
-            智能工作流程
-          </h2>
-          <p class="fade-in stagger-2 text-muted text-lg leading-relaxed">
-            从输入到输出，七步自动化生成符合指南的完整治疗方案。
-          </p>
+            data-zh="智能工作流程"
+            data-en="Intelligent Workflow"
+          ></h2>
+          <p
+            class="fade-in stagger-2 text-muted text-lg leading-relaxed"
+            data-zh="从输入到输出，七步自动化生成符合指南的完整治疗方案。"
+            data-en="From input to output, 7 automated steps to generate a guideline-concordant treatment plan."
+          ></p>
         </div>
         <div class="relative max-w-3xl mx-auto">
           <div class="timeline-line hidden sm:block"></div>
@@ -1012,12 +1073,16 @@
                 >
               </div>
               <div class="bg-card border border-border rounded-xl p-5 flex-1">
-                <h4 class="font-display font-semibold text-fg mb-1">
-                  分析临床背景
-                </h4>
-                <p class="text-muted text-sm">
-                  解析临床笔记或病例描述，提取关键临床信息、合并症和当前用药。
-                </p>
+                <h4
+                  class="font-display font-semibold text-fg mb-1"
+                  data-zh="分析临床背景"
+                  data-en="Analyze Clinical Context"
+                ></h4>
+                <p
+                  class="text-muted text-sm"
+                  data-zh="解析临床笔记或病例描述，提取关键临床信息、合并症和当前用药。"
+                  data-en="Parse clinical notes or case descriptions, extract key clinical information, comorbidities, and current medications."
+                ></p>
               </div>
             </div>
             <div class="fade-in relative flex gap-6">
@@ -1027,12 +1092,16 @@
                 <span class="font-display font-bold text-info text-sm">2</span>
               </div>
               <div class="bg-card border border-border rounded-xl p-5 flex-1">
-                <h4 class="font-display font-semibold text-fg mb-1">
-                  识别诊断与ICD-10编码
-                </h4>
-                <p class="text-muted text-sm">
-                  自动识别主要诊断和合并症，标注标准ICD-10代码，进行风险分层。
-                </p>
+                <h4
+                  class="font-display font-semibold text-fg mb-1"
+                  data-zh="识别诊断与ICD-10编码"
+                  data-en="Identify Diagnoses & ICD-10 Codes"
+                ></h4>
+                <p
+                  class="text-muted text-sm"
+                  data-zh="自动识别主要诊断和合并症，标注标准ICD-10代码，进行风险分层。"
+                  data-en="Automatically identify primary diagnoses and comorbidities, assign ICD-10 codes, and perform risk stratification."
+                ></p>
               </div>
             </div>
             <div class="fade-in relative flex gap-6">
@@ -1042,12 +1111,16 @@
                 <span class="font-display font-bold text-warm text-sm">3</span>
               </div>
               <div class="bg-card border border-border rounded-xl p-5 flex-1">
-                <h4 class="font-display font-semibold text-fg mb-1">
-                  生成SMART目标
-                </h4>
-                <p class="text-muted text-sm">
-                  基于患者特征和最新指南，生成具体、可衡量、可实现、相关、有时限的治疗目标。
-                </p>
+                <h4
+                  class="font-display font-semibold text-fg mb-1"
+                  data-zh="生成SMART目标"
+                  data-en="Generate SMART Goals"
+                ></h4>
+                <p
+                  class="text-muted text-sm"
+                  data-zh="基于患者特征和最新指南，生成具体、可衡量、可实现、相关、有时限的治疗目标。"
+                  data-en="Generate Specific, Measurable, Achievable, Relevant, and Time-bound treatment goals based on patient characteristics and latest guidelines."
+                ></p>
               </div>
             </div>
             <div class="fade-in relative flex gap-6">
@@ -1059,12 +1132,16 @@
                 >
               </div>
               <div class="bg-card border border-border rounded-xl p-5 flex-1">
-                <h4 class="font-display font-semibold text-fg mb-1">
-                  推荐循证干预措施
-                </h4>
-                <p class="text-muted text-sm">
-                  基于当前标准推荐药物和非药物干预，包括剂量、频率和依据。
-                </p>
+                <h4
+                  class="font-display font-semibold text-fg mb-1"
+                  data-zh="推荐循证干预措施"
+                  data-en="Recommend Evidence-Based Interventions"
+                ></h4>
+                <p
+                  class="text-muted text-sm"
+                  data-zh="基于当前标准推荐药物和非药物干预，包括剂量、频率和依据。"
+                  data-en="Recommend pharmacological and non-pharmacological interventions based on current standards, including dosing, frequency, and rationale."
+                ></p>
               </div>
             </div>
             <div class="fade-in relative flex gap-6">
@@ -1076,12 +1153,16 @@
                 >
               </div>
               <div class="bg-card border border-border rounded-xl p-5 flex-1">
-                <h4 class="font-display font-semibold text-fg mb-1">
-                  安全检查
-                </h4>
-                <p class="text-muted text-sm">
-                  自动检查药物相互作用、禁忌症、黑框警告和剂量适当性。
-                </p>
+                <h4
+                  class="font-display font-semibold text-fg mb-1"
+                  data-zh="安全检查"
+                  data-en="Safety Checks"
+                ></h4>
+                <p
+                  class="text-muted text-sm"
+                  data-zh="自动检查药物相互作用、禁忌症、黑框警告和剂量适当性。"
+                  data-en="Automatically check drug interactions, contraindications, black box warnings, and dose appropriateness."
+                ></p>
               </div>
             </div>
             <div class="fade-in relative flex gap-6">
@@ -1091,12 +1172,16 @@
                 <span class="font-display font-bold text-info text-sm">6</span>
               </div>
               <div class="bg-card border border-border rounded-xl p-5 flex-1">
-                <h4 class="font-display font-semibold text-fg mb-1">
-                  创建监测与随访计划
-                </h4>
-                <p class="text-muted text-sm">
-                  结构化监测参数、随访频率、里程碑评估和紧急情况处理方案。
-                </p>
+                <h4
+                  class="font-display font-semibold text-fg mb-1"
+                  data-zh="创建监测与随访计划"
+                  data-en="Create Monitoring & Follow-up Plan"
+                ></h4>
+                <p
+                  class="text-muted text-sm"
+                  data-zh="结构化监测参数、随访频率、里程碑评估和紧急情况处理方案。"
+                  data-en="Structured monitoring parameters, follow-up frequency, milestone assessments, and emergency protocols."
+                ></p>
               </div>
             </div>
             <div class="fade-in relative flex gap-6">
@@ -1108,12 +1193,16 @@
                 >
               </div>
               <div class="bg-card border border-border rounded-xl p-5 flex-1">
-                <h4 class="font-display font-semibold text-fg mb-1">
-                  输出完整治疗方案
-                </h4>
-                <p class="text-muted text-sm">
-                  生成可直接使用的Markdown格式治疗方案，兼容EHR系统集成。
-                </p>
+                <h4
+                  class="font-display font-semibold text-fg mb-1"
+                  data-zh="输出完整治疗方案"
+                  data-en="Output Complete Treatment Plan"
+                ></h4>
+                <p
+                  class="text-muted text-sm"
+                  data-zh="生成可直接使用的Markdown格式治疗方案，兼容EHR系统集成。"
+                  data-en="Generate a ready-to-use Markdown treatment plan, compatible with EHR system integration."
+                ></p>
               </div>
             </div>
           </div>
@@ -1133,12 +1222,14 @@
           </p>
           <h2
             class="fade-in stagger-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-fg mb-4"
-          >
-            专业模板
-          </h2>
-          <p class="fade-in stagger-2 text-muted text-lg leading-relaxed">
-            两种格式，适配不同临床场景。首选单页快速参考卡——密集、可扫描、一页尽览。
-          </p>
+            data-zh="专业模板"
+            data-en="Professional Templates"
+          ></h2>
+          <p
+            class="fade-in stagger-2 text-muted text-lg leading-relaxed"
+            data-zh="两种格式，适配不同临床场景。首选单页快速参考卡——密集、可扫描、一页尽览。"
+            data-en="Two formats for different clinical scenarios. One-page quick-reference card preferred — dense, scannable, everything at a glance."
+          ></p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div
@@ -1146,9 +1237,9 @@
           >
             <div
               class="absolute top-0 right-0 px-4 py-1.5 bg-accent text-bg text-xs font-display font-semibold rounded-bl-xl"
-            >
-              首选
-            </div>
+              data-zh="首选"
+              data-en="Preferred"
+            ></div>
             <div class="flex items-center gap-3 mb-5">
               <div
                 class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center"
@@ -1167,13 +1258,17 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-display font-bold text-fg text-xl tracking-tight">
-                单页治疗方案
-              </h3>
+              <h3
+                class="font-display font-bold text-fg text-xl tracking-tight"
+                data-zh="单页治疗方案"
+                data-en="One-Page Treatment Plan"
+              ></h3>
             </div>
-            <p class="text-muted text-sm leading-relaxed mb-6">
-              类似精准肿瘤学报告的临床推荐卡片。所有关键信息浓缩在单页，快速参考格式。
-            </p>
+            <p
+              class="text-muted text-sm leading-relaxed mb-6"
+              data-zh="类似精准肿瘤学报告的临床推荐卡片。所有关键信息浓缩在单页，快速参考格式。"
+              data-en="Clinical recommendation card similar to precision oncology reports. All key information condensed on a single page, quick-reference format."
+            ></p>
             <div class="space-y-3">
               <div class="flex items-start gap-3">
                 <div
@@ -1193,7 +1288,11 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm">密集、可扫描的布局</span>
+                <span
+                  class="text-fg text-sm"
+                  data-zh="密集、可扫描的布局"
+                  data-en="Dense, scannable layout"
+                ></span>
               </div>
               <div class="flex items-start gap-3">
                 <div
@@ -1213,9 +1312,11 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm"
-                  >患者信息、治疗方案、支持护理、监测要求</span
-                >
+                <span
+                  class="text-fg text-sm"
+                  data-zh="患者信息、治疗方案、支持护理、监测要求"
+                  data-en="Patient info, treatment regimen, supportive care, monitoring"
+                ></span>
               </div>
               <div class="flex items-start gap-3">
                 <div
@@ -1235,7 +1336,11 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm">证据等级与预期临床获益</span>
+                <span
+                  class="text-fg text-sm"
+                  data-zh="证据等级与预期临床获益"
+                  data-en="Evidence level and expected clinical benefit"
+                ></span>
               </div>
               <div class="flex items-start gap-3">
                 <div
@@ -1255,7 +1360,11 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm">繁忙临床环境首选</span>
+                <span
+                  class="text-fg text-sm"
+                  data-zh="繁忙临床环境首选"
+                  data-en="Preferred for busy clinical settings"
+                ></span>
               </div>
             </div>
           </div>
@@ -1280,14 +1389,17 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-display font-bold text-fg text-xl tracking-tight">
-                标准治疗方案
-              </h3>
+              <h3
+                class="font-display font-bold text-fg text-xl tracking-tight"
+                data-zh="标准治疗方案"
+                data-en="Standard Treatment Plan"
+              ></h3>
             </div>
-            <p class="text-muted text-sm leading-relaxed mb-6">
-              Foundation
-              Medicine首页摘要模型，3-4页综合格式，适合中等复杂度和多学科协调。
-            </p>
+            <p
+              class="text-muted text-sm leading-relaxed mb-6"
+              data-zh="Foundation Medicine首页摘要模型，3-4页综合格式，适合中等复杂度和多学科协调。"
+              data-en="Foundation Medicine first-page summary model, 3-4 page comprehensive format for moderate complexity and multidisciplinary coordination."
+            ></p>
             <div class="space-y-3">
               <div class="flex items-start gap-3">
                 <div
@@ -1307,9 +1419,11 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm"
-                  >首页执行摘要（关键发现彩色框）</span
-                >
+                <span
+                  class="text-fg text-sm"
+                  data-zh="首页执行摘要（关键发现彩色框）"
+                  data-en="First-page executive summary (colored key finding boxes)"
+                ></span>
               </div>
               <div class="flex items-start gap-3">
                 <div
@@ -1329,9 +1443,11 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm"
-                  >11节完整结构：诊断→目标→干预→监测</span
-                >
+                <span
+                  class="text-fg text-sm"
+                  data-zh="11节完整结构：诊断→目标→干预→监测"
+                  data-en="11-section structure: Diagnosis→Goals→Interventions→Monitoring"
+                ></span>
               </div>
               <div class="flex items-start gap-3">
                 <div
@@ -1351,7 +1467,11 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm">详细患者教育与风险缓解</span>
+                <span
+                  class="text-fg text-sm"
+                  data-zh="详细患者教育与风险缓解"
+                  data-en="Detailed patient education and risk mitigation"
+                ></span>
               </div>
               <div class="flex items-start gap-3">
                 <div
@@ -1371,40 +1491,66 @@
                     />
                   </svg>
                 </div>
-                <span class="text-fg text-sm">提供者签名与患者确认</span>
+                <span
+                  class="text-fg text-sm"
+                  data-zh="提供者签名与患者确认"
+                  data-en="Provider signature and patient acknowledgment"
+                ></span>
               </div>
             </div>
           </div>
         </div>
-
         <div
           class="fade-in mt-12 bg-surface border border-border rounded-2xl p-8"
         >
           <h3
             class="font-display font-bold text-fg text-lg tracking-tight mb-6"
-          >
-            示例：58岁男性 2型糖尿病 + 高血压
-          </h3>
+            data-zh="示例：58岁男性 2型糖尿病 + 高血压"
+            data-en="Example: 58yo Male, T2DM + Hypertension"
+          ></h3>
           <div
             class="bg-bg border border-border rounded-xl p-6 font-mono text-sm overflow-x-auto"
           >
-            <div class="text-muted/60 mb-2">// 输入</div>
-            <div class="text-fg mb-4">
-              58岁男性，2型糖尿病3年，HbA1c 8.5%，高血压，血压138/88，BMI
-              28.7<br />目前服用：二甲双胍500mg BID，赖诺普利10mg QD
-            </div>
-            <div class="text-muted/60 mb-2">
-              // AI输出（基于 ADA 2026 指南）
-            </div>
-            <div class="text-accent">
-              → 添加SGLT2抑制剂（恩格列净10mg QD）— 心肾保护（I类推荐）
-            </div>
-            <div class="text-accent">→ 二甲双胍滴定至1000mg BID</div>
-            <div class="text-accent">→ 个体化HbA1c目标 &lt;7.0%</div>
-            <div class="text-accent">→ 血压目标 &lt;130/80 mmHg</div>
-            <div class="text-accent">
-              → 监测：HbA1c 3月/肾功能 3月/尿ACR 每年
-            </div>
+            <div
+              class="text-muted/60 mb-2"
+              data-zh="// 输入"
+              data-en="// Input"
+            ></div>
+            <div
+              class="text-fg mb-4"
+              data-zh="58岁男性，2型糖尿病3年，HbA1c 8.5%，高血压，血压138/88，BMI 28.7<br />目前服用：二甲双胍500mg BID，赖诺普利10mg QD"
+              data-en="58yo male, T2DM for 3 years, HbA1c 8.5%, hypertension, BP 138/88, BMI 28.7<br />Current medications: Metformin 500mg BID, Lisinopril 10mg QD"
+            ></div>
+            <div
+              class="text-muted/60 mb-2"
+              data-zh="// AI输出（基于 ADA 2026 指南）"
+              data-en="// AI Output (based on ADA 2026 guidelines)"
+            ></div>
+            <div
+              class="text-accent"
+              data-zh="→ 添加SGLT2抑制剂（恩格列净10mg QD）— 心肾保护（I类推荐）"
+              data-en="→ Add SGLT2 inhibitor (Empagliflozin 10mg QD) — Cardiorenal protection (Class I)"
+            ></div>
+            <div
+              class="text-accent"
+              data-zh="→ 二甲双胍滴定至1000mg BID"
+              data-en="→ Titrate metformin to 1000mg BID"
+            ></div>
+            <div
+              class="text-accent"
+              data-zh="→ 个体化HbA1c目标 &lt;7.0%"
+              data-en="→ Individualized HbA1c target &lt;7.0%"
+            ></div>
+            <div
+              class="text-accent"
+              data-zh="→ 血压目标 &lt;130/80 mmHg"
+              data-en="→ Blood pressure target &lt;130/80 mmHg"
+            ></div>
+            <div
+              class="text-accent"
+              data-zh="→ 监测：HbA1c 3月/肾功能 3月/尿ACR 每年"
+              data-en="→ Monitoring: HbA1c q3mo / Renal function q3mo / Urine ACR annually"
+            ></div>
           </div>
         </div>
       </div>
@@ -1422,12 +1568,14 @@
           </p>
           <h2
             class="fade-in stagger-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-fg mb-4"
-          >
-            临床安全机制
-          </h2>
-          <p class="fade-in stagger-2 text-muted text-lg leading-relaxed">
-            多层安全防护，从药物相互作用检查到自我验证协议，确保每份治疗方案的可靠性与安全性。
-          </p>
+            data-zh="临床安全机制"
+            data-en="Clinical Safety Mechanisms"
+          ></h2>
+          <p
+            class="fade-in stagger-2 text-muted text-lg leading-relaxed"
+            data-zh="多层安全防护，从药物相互作用检查到自我验证协议，确保每份治疗方案的可靠性与安全性。"
+            data-en="Multi-layer safety protection, from drug interaction checks to self-verification protocols, ensuring reliability and safety of every treatment plan."
+          ></p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
           <div class="fade-in bg-card border border-border rounded-2xl p-7">
@@ -1449,13 +1597,17 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-display font-semibold text-fg tracking-tight">
-                药物相互作用检查
-              </h3>
+              <h3
+                class="font-display font-semibold text-fg tracking-tight"
+                data-zh="药物相互作用检查"
+                data-en="Drug Interaction Checks"
+              ></h3>
             </div>
-            <p class="text-muted text-sm leading-relaxed">
-              自动检测药物-药物、药物-食物、药物-疾病相互作用。核查黑框警告和FDA安全通讯。
-            </p>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="自动检测药物-药物、药物-食物、药物-疾病相互作用。核查黑框警告和FDA安全通讯。"
+              data-en="Automatically detect drug-drug, drug-food, and drug-disease interactions. Check black box warnings and FDA safety communications."
+            ></p>
           </div>
           <div class="fade-in bg-card border border-border rounded-2xl p-7">
             <div class="flex items-center gap-3 mb-4">
@@ -1476,13 +1628,17 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-display font-semibold text-fg tracking-tight">
-                禁忌症筛查
-              </h3>
+              <h3
+                class="font-display font-semibold text-fg tracking-tight"
+                data-zh="禁忌症筛查"
+                data-en="Contraindication Screening"
+              ></h3>
             </div>
-            <p class="text-muted text-sm leading-relaxed">
-              基于患者特征（年龄、妊娠、肾功能、过敏史）验证推荐药物无禁忌症。肾/肝功能剂量调整。
-            </p>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="基于患者特征（年龄、妊娠、肾功能、过敏史）验证推荐药物无禁忌症。肾/肝功能剂量调整。"
+              data-en="Verify no contraindications based on patient characteristics (age, pregnancy, renal function, allergies). Renal/hepatic dose adjustments."
+            ></p>
           </div>
           <div class="fade-in bg-card border border-border rounded-2xl p-7">
             <div class="flex items-center gap-3 mb-4">
@@ -1503,13 +1659,17 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-display font-semibold text-fg tracking-tight">
-                自我验证协议
-              </h3>
+              <h3
+                class="font-display font-semibold text-fg tracking-tight"
+                data-zh="自我验证协议"
+                data-en="Self-Verification Protocol"
+              ></h3>
             </div>
-            <p class="text-muted text-sm leading-relaxed">
-              12项验证清单：风险分层、目标对齐、阶梯式方法、基线考虑、指南版本、合并症覆盖、药物相互作用等。
-            </p>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="12项验证清单：风险分层、目标对齐、阶梯式方法、基线考虑、指南版本、合并症覆盖、药物相互作用等。"
+              data-en="12-item verification checklist: Risk stratification, target alignment, stepwise approach, baseline considerations, guideline version, comorbidity coverage, drug interactions, and more."
+            ></p>
           </div>
           <div class="fade-in bg-card border border-border rounded-2xl p-7">
             <div class="flex items-center gap-3 mb-4">
@@ -1530,22 +1690,25 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-display font-semibold text-fg tracking-tight">
-                实时验证
-              </h3>
+              <h3
+                class="font-display font-semibold text-fg tracking-tight"
+                data-zh="实时验证"
+                data-en="Real-Time Verification"
+              ></h3>
             </div>
-            <p class="text-muted text-sm leading-relaxed">
-              高风险决策执行多次独立搜索验证一致性。搜索日期和来源可追溯。指南版本实时核查。
-            </p>
+            <p
+              class="text-muted text-sm leading-relaxed"
+              data-zh="高风险决策执行多次独立搜索验证一致性。搜索日期和来源可追溯。指南版本实时核查。"
+              data-en="Multiple independent searches for high-stakes decisions to verify consistency. Search dates and sources traceable. Real-time guideline version verification."
+            ></p>
           </div>
         </div>
-
         <div class="fade-in bg-surface border border-border rounded-2xl p-8">
           <h3
             class="font-display font-bold text-fg text-lg tracking-tight mb-6"
-          >
-            自我验证检查清单
-          </h3>
+            data-zh="自我验证检查清单"
+            data-en="Self-Verification Checklist"
+          ></h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="flex items-center gap-3">
               <div
@@ -1565,7 +1728,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">风险分层验证</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="风险分层验证"
+                data-en="Risk stratification verification"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1585,7 +1752,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">治疗目标与风险对齐</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="治疗目标与风险对齐"
+                data-en="Target alignment with risk level"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1605,7 +1776,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">阶梯式治疗路径</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="阶梯式治疗路径"
+                data-en="Stepwise treatment approach"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1625,7 +1800,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">基线值联合治疗评估</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="基线值联合治疗评估"
+                data-en="Baseline combination therapy assessment"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1645,7 +1824,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">指南版本明确标注</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="指南版本明确标注"
+                data-en="Explicit guideline version documentation"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1665,7 +1848,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">合并症全面覆盖</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="合并症全面覆盖"
+                data-en="Comprehensive comorbidity coverage"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1685,7 +1872,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">药物相互作用核查</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="药物相互作用核查"
+                data-en="Drug interaction verification"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1705,7 +1896,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">禁忌症筛查</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="禁忌症筛查"
+                data-en="Contraindication screening"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1725,7 +1920,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">剂量适当性验证</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="剂量适当性验证"
+                data-en="Dose appropriateness verification"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1745,7 +1944,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">安全警报核查</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="安全警报核查"
+                data-en="Safety alert check"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1765,7 +1968,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">监测计划完整性</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="监测计划完整性"
+                data-en="Monitoring plan completeness"
+              ></span>
             </div>
             <div class="flex items-center gap-3">
               <div
@@ -1785,7 +1992,11 @@
                   />
                 </svg>
               </div>
-              <span class="text-fg text-sm">临床上下文考量</span>
+              <span
+                class="text-fg text-sm"
+                data-zh="临床上下文考量"
+                data-en="Clinical context consideration"
+              ></span>
             </div>
           </div>
         </div>
@@ -1805,14 +2016,14 @@
             </p>
             <h2
               class="fade-in stagger-1 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-fg mb-4"
-            >
-              动态指南更新
-            </h2>
+              data-zh="动态指南更新"
+              data-en="Dynamic Guideline Updates"
+            ></h2>
             <p
               class="fade-in stagger-2 text-muted text-lg leading-relaxed mb-6"
-            >
-              解决静态提示词悖论——嵌入指南作为基础，搜索工具实时验证与更新。
-            </p>
+              data-zh="解决静态提示词悖论——嵌入指南作为基础，搜索工具实时验证与更新。"
+              data-en="Solving the static prompt paradox — embedded guidelines as foundation, search tools for real-time verification and updates."
+            ></p>
             <div class="fade-in stagger-3 space-y-4">
               <div class="flex items-start gap-3">
                 <div
@@ -1821,12 +2032,16 @@
                   <span class="text-accent text-xs font-bold">1</span>
                 </div>
                 <div>
-                  <h4 class="font-display font-semibold text-fg text-sm mb-1">
-                    搜索工具集成
-                  </h4>
-                  <p class="text-muted text-sm">
-                    快速演进领域（肿瘤靶向治疗、新获批药物、药物安全警报）自动检索最新FDA/NCCN/EMA/ESMO推荐
-                  </p>
+                  <h4
+                    class="font-display font-semibold text-fg text-sm mb-1"
+                    data-zh="搜索工具集成"
+                    data-en="Search Tool Integration"
+                  ></h4>
+                  <p
+                    class="text-muted text-sm"
+                    data-zh="快速演进领域（肿瘤靶向治疗、新获批药物、药物安全警报）自动检索最新FDA/NCCN/EMA/ESMO推荐"
+                    data-en="Automatically retrieve the latest FDA/NCCN/EMA/ESMO recommendations for rapidly evolving fields (oncology targeted therapies, newly approved drugs, safety alerts)"
+                  ></p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -1836,12 +2051,16 @@
                   <span class="text-accent text-xs font-bold">2</span>
                 </div>
                 <div>
-                  <h4 class="font-display font-semibold text-fg text-sm mb-1">
-                    基础+验证模式
-                  </h4>
-                  <p class="text-muted text-sm">
-                    SYSTEM_PROMPT.md中指南作为基础，网络检索信息用于验证，搜索日期和来源可追溯
-                  </p>
+                  <h4
+                    class="font-display font-semibold text-fg text-sm mb-1"
+                    data-zh="基础+验证模式"
+                    data-en="Foundation + Verification Model"
+                  ></h4>
+                  <p
+                    class="text-muted text-sm"
+                    data-zh="SYSTEM_PROMPT.md中指南作为基础，网络检索信息用于验证，搜索日期和来源可追溯"
+                    data-en="Guidelines in SYSTEM_PROMPT.md as foundation, web-retrieved information for verification, search dates and sources traceable"
+                  ></p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -1851,12 +2070,16 @@
                   <span class="text-accent text-xs font-bold">3</span>
                 </div>
                 <div>
-                  <h4 class="font-display font-semibold text-fg text-sm mb-1">
-                    不确定性协议
-                  </h4>
-                  <p class="text-muted text-sm">
-                    不确定时明确声明，推荐验证当前来源，高风险决策执行多次独立搜索
-                  </p>
+                  <h4
+                    class="font-display font-semibold text-fg text-sm mb-1"
+                    data-zh="不确定性协议"
+                    data-en="Uncertainty Protocol"
+                  ></h4>
+                  <p
+                    class="text-muted text-sm"
+                    data-zh="不确定时明确声明，推荐验证当前来源，高风险决策执行多次独立搜索"
+                    data-en="Explicitly state uncertainty, recommend verification with current sources, multiple independent searches for high-stakes decisions"
+                  ></p>
                 </div>
               </div>
             </div>
@@ -1870,34 +2093,58 @@
               ></div>
               <div class="flex items-center gap-2 mb-4">
                 <div class="w-2 h-2 rounded-full bg-accent pulse-dot"></div>
-                <span class="text-accent text-xs font-display font-medium"
-                  >实时搜索验证</span
-                >
+                <span
+                  class="text-accent text-xs font-display font-medium"
+                  data-zh="实时搜索验证"
+                  data-en="Real-Time Search Verification"
+                ></span>
               </div>
               <div class="space-y-3 font-mono text-xs">
                 <div class="bg-bg border border-border rounded-lg p-3">
-                  <span class="text-muted/60">搜索:</span>
+                  <span
+                    class="text-muted/60"
+                    data-zh="搜索:"
+                    data-en="Search:"
+                  ></span>
                   <span class="text-fg"
                     >NCCN 2026 colon cancer adjuvant therapy update</span
                   >
                 </div>
                 <div class="bg-bg border border-border rounded-lg p-3">
-                  <span class="text-muted/60">验证:</span>
-                  <span class="text-accent"
-                    >CAPOX 3个月非劣效于6个月（IDEA研究）✓</span
-                  >
+                  <span
+                    class="text-muted/60"
+                    data-zh="验证:"
+                    data-en="Verify:"
+                  ></span>
+                  <span
+                    class="text-accent"
+                    data-zh="CAPOX 3个月非劣效于6个月（IDEA研究）✓"
+                    data-en="CAPOX 3 months non-inferior to 6 months (IDEA study) ✓"
+                  ></span>
                 </div>
                 <div class="bg-bg border border-border rounded-lg p-3">
-                  <span class="text-muted/60">来源:</span>
-                  <span class="text-fg"
-                    >NCCN Guidelines v2.2026 | 搜索日期: 2026-04</span
-                  >
+                  <span
+                    class="text-muted/60"
+                    data-zh="来源:"
+                    data-en="Source:"
+                  ></span>
+                  <span
+                    class="text-fg"
+                    data-zh="NCCN Guidelines v2.2026 | 搜索日期: 2026-04"
+                    data-en="NCCN Guidelines v2.2026 | Search date: 2026-04"
+                  ></span>
                 </div>
                 <div class="bg-bg border border-border rounded-lg p-3">
-                  <span class="text-muted/60">新增:</span>
-                  <span class="text-warm"
-                    >DPYD基因检测推荐（氟嘧啶毒性预防）</span
-                  >
+                  <span
+                    class="text-muted/60"
+                    data-zh="新增:"
+                    data-en="New:"
+                  ></span>
+                  <span
+                    class="text-warm"
+                    data-zh="DPYD基因检测推荐（氟嘧啶毒性预防）"
+                    data-en="DPYD gene testing recommended (fluoropyrimidine toxicity prevention)"
+                  ></span>
                 </div>
               </div>
             </div>
@@ -1934,23 +2181,25 @@
                 />
               </svg>
             </div>
-            <h3 class="font-display font-bold text-fg text-xl tracking-tight">
-              重要免责声明
-            </h3>
+            <h3
+              class="font-display font-bold text-fg text-xl tracking-tight"
+              data-zh="重要免责声明"
+              data-en="Important Disclaimer"
+            ></h3>
           </div>
           <div class="space-y-4 text-muted text-sm leading-relaxed">
-            <p>
-              本技能基于当前指南推荐生成<strong class="text-fg"
-                >AI辅助治疗方案</strong
-              >。最终临床决策、剂量调整和处方权必须由<strong class="text-fg"
-                >主治医师</strong
-              >根据患者个体化情况（如实时肝肾功能指标）核准。
-            </p>
-            <p>
-              AI生成的治疗方案<strong class="text-fg">仅供参考</strong
-              >，不替代医生的临床判断和决策。医师在做出最终决策时应考虑患者特异性因素、实时实验室指标、药物相互作用、过敏史等因素。
-            </p>
-            <p>始终验证指南版本并咨询当前来源，特别是对于快速演进领域。</p>
+            <p
+              data-zh='本技能基于当前指南推荐生成<strong class="text-fg">AI辅助治疗方案</strong>。最终临床决策、剂量调整和处方权必须由<strong class="text-fg">主治医师</strong>根据患者个体化情况（如实时肝肾功能指标）核准。'
+              data-en='This skill generates <strong class="text-fg">AI-assisted treatment plans</strong> based on current guideline recommendations. Final clinical decisions, dose adjustments, and prescribing authority must be approved by the <strong class="text-fg">attending physician</strong> based on individual patient circumstances (such as real-time liver and kidney function indicators).'
+            ></p>
+            <p
+              data-zh='AI生成的治疗方案<strong class="text-fg">仅供参考</strong>，不替代医生的临床判断和决策。医师在做出最终决策时应考虑患者特异性因素、实时实验室指标、药物相互作用、过敏史等因素。'
+              data-en='AI-generated treatment plans are <strong class="text-fg">for reference only</strong> and do not replace physician clinical judgment and decision-making. Physicians should consider patient-specific factors, real-time laboratory indicators, drug interactions, allergy history, and other factors when making final decisions.'
+            ></p>
+            <p
+              data-zh="始终验证指南版本并咨询当前来源，特别是对于快速演进领域。"
+              data-en="Always verify guideline versions and consult current sources, especially for rapidly evolving fields."
+            ></p>
           </div>
         </div>
       </div>
@@ -1986,7 +2235,10 @@
           <div
             class="flex flex-wrap items-center justify-center gap-4 text-xs text-muted"
           >
-            <span>指南版本: ADA 2026</span>
+            <span
+              data-zh="指南版本: ADA 2026"
+              data-en="Guidelines: ADA 2026"
+            ></span>
             <span class="text-border">|</span>
             <span>ACC/AHA 2025</span>
             <span class="text-border">|</span>
@@ -2012,28 +2264,59 @@
     </footer>
 
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
+      let currentLang = localStorage.getItem("lang") || "zh";
+
+      function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem("lang", lang);
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        document
+          .getElementById("lang-zh")
+          .classList.toggle("active", lang === "zh");
+        document
+          .getElementById("lang-en")
+          .classList.toggle("active", lang === "en");
+        document
+          .getElementById("lang-zh")
+          .classList.toggle("text-muted", lang !== "zh");
+        document
+          .getElementById("lang-en")
+          .classList.toggle("text-muted", lang !== "en");
+        document.querySelectorAll("[data-zh][data-en]").forEach(function (el) {
+          var text = el.getAttribute("data-" + lang);
+          if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            el.value = text;
+          } else {
+            el.innerHTML = text;
+          }
+        });
+        document.title =
+          lang === "zh"
+            ? "Clinical AI Agent — 循证医学智能治疗方案生成"
+            : "Clinical AI Agent — Evidence-Based Treatment Plan Generation";
+      }
+
+      setLang(currentLang);
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
           });
         },
         { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
       );
 
-      document
-        .querySelectorAll(".fade-in")
-        .forEach((el) => observer.observe(el));
+      document.querySelectorAll(".fade-in").forEach(function (el) {
+        observer.observe(el);
+      });
 
-      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+      document.querySelectorAll('nav a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
+          var target = document.querySelector(this.getAttribute("href"));
+          if (target)
             target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
         });
       });
     </script>
