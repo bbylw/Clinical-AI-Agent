@@ -6,7 +6,7 @@ license: MIT license
 metadata:
     skill-author: K-Dense Inc.
     ai-driven: true
-    guideline-version: ADA 2026, ACC/AHA 2024, ESC 2023
+    guideline-version: ADA 2026, ACC/AHA 2025, ESC/EAS 2025, NCCN 2026
 ---
 
 # AI-Driven Treatment Plan Generation
@@ -36,7 +36,7 @@ Simply provide clinical notes or a case description to the AI. The AI will autom
 1. Analyze the clinical context
 2. Identify diagnoses with ICD-10 codes
 3. Generate SMART goals based on patient characteristics and latest guidelines
-4. Recommend evidence-based interventions using current standards (ADA 2026, ACC/AHA 2024, ESC 2019)
+4. Recommend evidence-based interventions using current standards (ADA 2026, ACC/AHA 2025, ESC/EAS 2025)
 5. Check for drug interactions and contraindications
 6. Create a structured monitoring and follow-up plan
 7. Output a complete, ready-to-use treatment plan in Markdown format
@@ -61,7 +61,7 @@ This skill should be used when:
 
 This is a pure AI-driven skill. When loaded, the AI model has access to:
 
-1. **SYSTEM_PROMPT.md**: Contains comprehensive clinical guidelines across all specialties (diabetes, hypertension, cardiology, oncology, respiratory, rheumatology, neurology, infectious disease, psychiatry, geriatrics) with emphasis on the latest evidence-based recommendations (NCCN 2026, ADA 2026, ACC/AHA 2024, ESC 2023, etc.)
+1. **SYSTEM_PROMPT.md**: Contains comprehensive clinical guidelines across all specialties (diabetes, hypertension, cardiology, oncology, respiratory, rheumatology, neurology, infectious disease, psychiatry, nephrology, obstetrics, pediatrics, geriatrics) with emphasis on the latest evidence-based recommendations (NCCN 2026, ADA 2026, ACC/AHA 2025, ESC/EAS 2025, KDIGO 2024, ACOG 2024, AAP 2023-2024, etc.)
 2. **Treatment Templates**: Structured Markdown templates in `assets/` directory (one_page_treatment_plan.md, standard_treatment_plan.md)
 3. **Reference Materials**: Clinical guidelines and evidence in `references/` directory
 
@@ -1091,7 +1091,7 @@ Treatment plans should align with:
 - American Diabetes Association (ADA) Standards of Care
 - ACC/AHA Cardiovascular Guidelines
 - GOLD COPD Guidelines
-- JNC-8 Hypertension Guidelines
+- AHA/ACC 2025 Hypertension Guidelines
 - KDIGO Chronic Kidney Disease Guidelines
 
 ### Rehabilitation
@@ -1143,7 +1143,7 @@ Interactive template selection:
 
 ## Markdown Formatting for Treatment Plans
 
-This skill uses Markdown for treatment plan generation. The AI model directly applies the latest clinical guidelines (ADA 2026, ACC/AHA 2024, ESC 2019) when generating treatment plans in Markdown format.
+This skill uses Markdown for treatment plan generation. The AI model directly applies the latest clinical guidelines (ADA 2026, ACC/AHA 2025, ESC/EAS 2025) when generating treatment plans in Markdown format.
 
 ### Markdown Structure
 
@@ -1302,14 +1302,16 @@ This skill incorporates the latest clinical guidelines:
 - For patients with both CVD and CKD, both GLP-1 RA and SGLT2i can be used together
 - Individualized HbA1c targets: <7.0% for general adults, <8.0% for elderly/frail patients
 
-### Hypertension Management (ACC/AHA 2024)
+### Hypertension Management (AHA/ACC 2025)
 - ACE inhibitors or ARBs are PREFERRED for patients with CAD or CKD
 - For 2nd stage hypertension or high-risk factors, INITIAL therapy should consider SINGLE-PILL COMBINATION
-- Target BP: <130/80 mmHg (general), <140/90 mmHg (elderly 65-75), <150/90 mmHg (elderly 80+)
+- Target BP: <130/80 mmHg (general adults, encouraged <120/80 if tolerated), <130/80 mmHg (elderly 65-79 if tolerated; consider <140/90 for frail/high fall risk), <140/90 mmHg (elderly 80+, individualized)
 
-### Lipid Management (ACC/AHA 2018/ESC 2019)
-- LDL-C target for very high risk (CAD + diabetes): <55 mg/dL (1.4 mmol/L)
-- High-intensity statins for very high risk patients
+### Lipid Management (ACC/AHA 2026, ESC/EAS 2025)
+- **ACC/AHA 2026**: Clinical ASCVD very high risk <55 mg/dL, not at very high risk <70 mg/dL; Primary prevention based on PREVENT-ASCVD risk
+- **ESC/EAS 2025**: High risk <70 mg/dL, very high risk <55 mg/dL, extreme risk <40 mg/dL
+- Stepwise approach: High-intensity statin → ezetimibe → PCSK9 inhibitors; Bempedoic acid for statin-intolerant
+- Lp(a) screening recommended at least once in every adult's lifetime
 
 ## Skill Architecture
 

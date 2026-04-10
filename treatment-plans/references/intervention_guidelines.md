@@ -62,16 +62,17 @@ This reference provides comprehensive guidance on selecting, implementing, and d
 
 #### Hypertension
 
-**First-Line Agents** (per JNC-8, ACC/AHA guidelines):
+**First-Line Agents** (per AHA/ACC 2025 guidelines):
 - **ACE Inhibitors** (lisinopril, enalapril): Preferred if diabetes, CKD, or heart failure
 - **ARBs** (losartan, valsartan): Alternative to ACE if intolerant
 - **Calcium Channel Blockers** (amlodipine): Particularly effective in elderly, Black patients
-- **Thiazide Diuretics** (chlorthalidone, HCTZ): Cost-effective, good CV outcomes
+- **Thiazide Diuretics** (chlorthalidone preferred over HCTZ): Cost-effective, good CV outcomes
+- **Beta-blockers are NOT first-line** for hypertension alone (only for patients with CVD or HF)
 
 **Dosing Strategy**:
-- Start single agent at low dose
-- Titrate to maximum tolerated dose before adding second agent
-- Combination therapy often needed (2-3 agents)
+- Stage 1 hypertension: Start single agent at low dose, titrate before adding second agent
+- Stage 2 hypertension (≥140/90) or high-risk: Consider SINGLE-PILL COMBINATION as initial therapy (ACEI/ARB + CCB or ACEI/ARB + thiazide)
+- Target BP: <130/80 mmHg (general adults, encouraged <120/80 if tolerated); <140/90 mmHg (elderly 80+, frail, limited life expectancy)
 - Monitor BP response, adjust every 2-4 weeks
 
 #### Type 2 Diabetes Mellitus
@@ -501,7 +502,7 @@ For each intervention, document:
 
 ---
 
-**Document Version**: 1.0  
-**Last Updated**: January 2025  
-**Next Review**: January 2026
+**Document Version**: 1.1  
+**Last Updated**: April 2026  
+**Next Review**: October 2026
 

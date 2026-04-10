@@ -30,7 +30,7 @@ AI-driven skill for generating **concise, clinician-focused** medical treatment 
 
 ### 🧠 System Prompt (AI Knowledge Base)
 
-- `SYSTEM_PROMPT.md` - Contains the latest clinical guidelines across all specialties (NCCN 2026, ADA 2026, ACC/AHA 2024, ESC 2023, etc.)
+- `SYSTEM_PROMPT.md` - Contains the latest clinical guidelines across all specialties (NCCN 2026, ADA 2026, ACC/AHA 2025, ESC/EAS 2025, KDIGO 2024, ACOG 2024, AAP 2023-2024, etc.)
 
 ## Quick Start
 
@@ -314,7 +314,7 @@ Treatment plans should align with evidence-based guidelines:
 - American Diabetes Association (ADA) Standards of Care
 - ACC/AHA Cardiovascular Guidelines
 - GOLD COPD Guidelines
-- JNC-8 Hypertension Guidelines
+- AHA/ACC 2025 Hypertension Guidelines
 - KDIGO Chronic Kidney Disease Guidelines
 
 ### Rehabilitation

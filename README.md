@@ -4,11 +4,11 @@ An extremely mature, safe, clinical AI agent with real-time update capabilities 
 
 ## Overview
 
-This skill enables AI-powered generation of professional medical treatment plans using the latest clinical guidelines (NCCN 2026, ADA 2026, ACC/AHA 2024, ESC 2023, etc.). It provides structured Markdown templates, comprehensive medication databases, drug interaction checking, and automated PHI de-identification for patient-centered care planning.
+This skill enables AI-powered generation of professional medical treatment plans using the latest clinical guidelines (NCCN 2026, ADA 2026, ACC/AHA 2025, ESC/EAS 2025, KDIGO 2024, ACOG 2024, AAP 2023-2024, etc.). It provides structured Markdown templates, comprehensive medication databases, drug interaction checking, and automated PHI de-identification for patient-centered care planning.
 
 **Key Features:**
 - 🧠 **AI-Driven Generation**: Direct treatment plan generation from clinical notes or case descriptions
-- 📚 **Latest Guidelines**: Incorporates the most current evidence-based guidelines across 12+ medical specialties
+- 📚 **Latest Guidelines**: Incorporates the most current evidence-based guidelines across 15+ medical specialties
 - 🔍 **Dynamic Updates**: Uses search tools to retrieve the latest FDA/NCCN/EMA/ESMO recommendations for rapidly evolving fields
 - 📝 **Professional Templates**: Structured Markdown templates (one-page and standard formats)
 - 💊 **Medication Database**: Comprehensive drug information with dose ranges, interactions, and contraindications
@@ -98,7 +98,7 @@ treatment-plans/
 
 ## Clinical Guidelines Covered
 
-The skill incorporates the latest evidence-based guidelines across 12+ medical specialties:
+The skill incorporates the latest evidence-based guidelines across 15+ medical specialties:
 
 ### Diabetes Management (ADA 2026)
 - First-line: Metformin unless contraindicated
@@ -121,6 +121,22 @@ The skill incorporates the latest evidence-based guidelines across 12+ medical s
 - Sources: National Lipid Association (ACC/AHA), Family Heart Foundation (ESC/EAS), verified 2026-04-11
 - Stepwise approach: Statin → Ezetimibe → PCSK9 inhibitors; Bempedoic acid for statin-intolerant
 - Individualize based on patient risk, tolerance, and comorbidities
+
+### Nephrology Guidelines (KDIGO 2024)
+- CKD classification: GFR categories G1-G5 + albuminuria A1-A3
+- SGLT2 inhibitors for CKD with eGFR 20-45 (even without diabetes)
+- Anemia of CKD: Iron repletion first, ESA if Hb <10 g/dL; HIF-PHI as alternative
+- Dialysis initiation: Based on symptoms, not eGFR threshold alone
+
+### Obstetric Guidelines (ACOG 2024, SMFM)
+- Hypertensive disorders: Chronic HTN target <140/90 (CHAP trial); preeclampsia: MgSO4 for seizure prophylaxis
+- GDM screening at 24-28 weeks; medication safety per FDA PLLR format (no ABCDX)
+- Avoid ACEi/ARBs, statins, warfarin in pregnancy; DOACs contraindicated
+
+### Pediatric Guidelines (AAP 2023-2024)
+- Weight-based dosing (mg/kg) required; verify age-appropriate formulations
+- Pediatric HTN: ≥95th percentile on 3+ occasions; step therapy for asthma (NAEPP EPR-4)
+- Type 2 DM in youth: Metformin first-line (ADA 2026); ADHD: behavioral therapy first for age 4-5
 
 ### Oncology Guidelines (NCCN 2026)
 - Breast, Lung, Prostate, Lymphoma, Ovarian, Melanoma
@@ -231,7 +247,7 @@ bbylw
 
 ## Version
 
-Guideline Version: ADA 2026, ACC/AHA 2024, ESC 2023, NCCN 2026
+Guideline Version: ADA 2026, ACC/AHA 2025, ESC/EAS 2025, NCCN 2026, KDIGO 2024, ACOG 2024, AAP 2023-2024
 Last Updated: April 2026
 
 ## Support
@@ -246,7 +262,7 @@ AI驱动的医疗治疗方案生成技能，用于生成基于循证医学、符
 
 **主要功能：**
 - 🧠 **AI驱动生成**：直接从临床笔记或病例描述生成治疗方案
-- 📚 **最新指南**：整合12+医学专科的最新循证指南
+- 📚 **最新指南**：整合15+医学专科的最新循证指南
 - 🔍 **动态更新**：使用搜索工具检索快速演进领域的最新FDA/NCCN/EMA/ESMO推荐
 - 📝 **专业模板**：结构化Markdown模板（单页和标准格式）
 - 💊 **药物数据库**：全面的药物信息，包括剂量范围、相互作用和禁忌症
@@ -334,7 +350,7 @@ treatment-plans/
 
 ## 涵盖的临床指南
 
-本技能整合12+医学专科的最新循证指南：
+本技能整合15+医学专科的最新循证指南：
 
 ### 糖尿病管理 (ADA 2026)
 - 一线：二甲双胍，除非有禁忌症
@@ -357,6 +373,22 @@ treatment-plans/
 - 来源：National Lipid Association (ACC/AHA)，Family Heart Foundation (ESC/EAS)，验证于2026-04-11
 - 阶梯式方法：他汀→依折麦布→PCSK9抑制剂；他汀不耐受者使用Bempedoic acid
 - 根据患者风险、耐受性和合并症个体化
+
+### 肾脏病学指南 (KDIGO 2024)
+- CKD分期：GFR G1-G5 + 白蛋白尿 A1-A3
+- SGLT2抑制剂用于CKD eGFR 20-45（即使无糖尿病）
+- CKD贫血：先补铁，ESA用于Hb<10 g/dL；HIF-PHI作为替代
+- 透析时机：基于症状而非单纯eGFR阈值
+
+### 产科指南 (ACOG 2024, SMFM)
+- 妊娠期高血压：慢性高血压目标<140/90（CHAP试验）；子痫前期：硫酸镁预防抽搐
+- GDM 24-28周筛查；药物安全使用FDA PLLR格式（不再使用ABCDX分类）
+- 妊娠期避免ACEi/ARBs、他汀、华法林；DOACs禁忌
+
+### 儿科指南 (AAP 2023-2024)
+- 按体重给药(mg/kg)；确认年龄适当的制剂
+- 儿科高血压：≥95百分位3次以上；哮喘阶梯治疗（NAEPP EPR-4）
+- 青少年2型糖尿病：二甲双胍一线（ADA 2026）；ADHD：4-5岁行为治疗优先
 
 ### 肿瘤学指南 (NCCN 2026)
 - 乳腺癌、肺癌、前列腺癌、淋巴瘤、卵巢癌、黑色素瘤
@@ -467,7 +499,7 @@ bbylw
 
 ## 版本
 
-指南版本: ADA 2026, ACC/AHA 2024, ESC 2023, NCCN 2026
+指南版本: ADA 2026, ACC/AHA 2025, ESC/EAS 2025, NCCN 2026, KDIGO 2024, ACOG 2024, AAP 2023-2024
 最后更新: 2026年4月
 
 ## 支持

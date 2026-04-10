@@ -76,10 +76,10 @@ This reference provides detailed guidelines for developing treatment plans speci
 ### Treatment Goal Specifics
 
 **Guideline-Based Targets**:
-- HbA1c <7% for most diabetics (<8% if elderly, limited life expectancy)
-- BP <130/80 for most; <140/90 if elderly or low cardiovascular risk
-- LDL <70 mg/dL if ASCVD, <100 mg/dL moderate risk
-- Use individualized targets based on patient factors
+- HbA1c <7% for most diabetics (<8% if elderly, limited life expectancy) — ADA 2026
+- BP <130/80 mmHg for most (encouraged <120/80 if tolerated); <140/90 for elderly 80+/frail — AHA/ACC 2025
+- LDL-C: ASCVD very high risk <55 mg/dL, ASCVD not very high risk <70 mg/dL, primary prevention high risk <70 mg/dL, moderate risk <100 mg/dL — ACC/AHA 2026 / ESC/EAS 2025
+- Use individualized targets based on patient factors, tolerance, frailty, and life expectancy
 
 **Functional Goals**:
 - Maintain independence in ADLs
@@ -649,7 +649,7 @@ This reference provides detailed guidelines for developing treatment plans speci
 
 ---
 
-**Document Version**: 1.0  
-**Last Updated**: January 2025  
-**Next Review**: January 2026
+**Document Version**: 1.1  
+**Last Updated**: April 2026  
+**Next Review**: October 2026
 

@@ -227,6 +227,33 @@ When the treatment-plans skill is loaded, you have access to:
 - **Bipolar Disorder**: CANMAT 2022 - Mood stabilizers (lithium, valproate) for acute mania, quetiapine for bipolar depression
 - **Schizophrenia**: APA 2020 - Antipsychotics (second-generation preferred), clozapine for treatment-resistant
 
+### Nephrology Guidelines (KDIGO 2024)
+- **CKD classification**: GFR categories G1-G5 combined with albuminuria categories A1-A3
+- **CKD management**: SGLT2 inhibitors for CKD with eGFR 20-45 (even without diabetes) — Class I recommendation
+- **Blood pressure in CKD**: Target <120 mmHg systolic (KDIGO 2021 BP guideline) for non-dialysis CKD; individualize for dialysis patients
+- **Anemia of CKD**: Iron repletion first (TSAT <20% or ferritin <100), ESA if Hb <10 g/dL after iron optimization; HIF-PHI (roxadustat) as alternative
+- **Mineral bone disease (CKD-MBD)**: Phosphate control, vitamin D supplementation, avoid calcium-based binders in dialysis; target PTH 2-9× ULN for dialysis patients
+- **AKI staging**: KDIGO stages 1-3 based on creatinine rise and urine output
+- **Dialysis initiation**: Based on symptoms, not eGFR threshold alone; consider when eGFR 5-10 mL/min with uremic symptoms
+- **Kidney transplant**: Preferred RRT modality when feasible; pre-emptive transplant superior to dialysis-first
+
+### Obstetric Guidelines (ACOG 2024, SMFM)
+- **Hypertensive disorders of pregnancy**: Chronic HTN target <140/90 mmHg (CHAP trial supports treating to <140/90); preeclampsia: magnesium sulfate for seizure prophylaxis, delivery timing based on severity
+- **Gestational diabetes (GDM)**: Screen at 24-28 weeks (or early if risk factors); fasting glucose <95, 1-hr postprandial <140, 2-hr <120 mg/dL; metformin/insulin if diet fails
+- **Medication safety in pregnancy**: FDA PLLR format (no longer ABCDX categories); avoid ACEi/ARBs (teratogenic), statins (contraindicated), warfarin (first trimester); labetalol/nifedipine for HTN; insulin preferred for diabetes
+- **Preterm birth prevention**: Progesterone supplementation for prior spontaneous preterm birth; cervical cerclage for short cervix <25mm with history; antenatal corticosteroids (betamethasone) for 24-34 weeks if preterm delivery anticipated
+- **Venous thromboembolism**: LMWH (enoxaparin) for prophylaxis/treatment; DOACs contraindicated in pregnancy
+- **Postpartum**: Breastfeeding compatibility assessment for all medications; postpartum depression screening (Edinburgh Postnatal Depression Scale)
+
+### Pediatric Guidelines (AAP 2023-2024)
+- **Medication dosing**: Weight-based dosing (mg/kg) required for all pediatric prescriptions; verify age-appropriate formulations
+- **Hypertension**: AAP 2017 CPG — defined as ≥95th percentile for age/sex/height on 3+ occasions; lifestyle first, pharmacotherapy if stage 2 or end-organ damage; ACEi/ARB, CCB, or thiazide as first-line
+- **Asthma**: NAEPP EPR-4 2020 — step therapy approach; ICS preferred controller for persistent asthma; avoid LABA monotherapy; consider biologic therapy for severe uncontrolled (omalizumab age ≥6)
+- **Type 2 diabetes in youth**: ADA 2026 — metformin + lifestyle first-line; liraglutide approved ≥10 years; insulin if HbA1c ≥8.5% or ketosis; SGLT2i not approved <18 in most jurisdictions
+- **ADHD**: AAP 2019 — behavioral therapy first for age 4-5; methylphenidate or amphetamines first-line for ≥6 years; monitor growth, HR, BP
+- **Immunizations**: Follow CDC/ACIP schedule; catch-up schedules for missed vaccines; special populations (immunocompromised, preterm)
+- **Neonatal**: Avoid medications with benzyl alcohol preservative in neonates; adjust for gestational age; monitor for immature hepatic/renal clearance
+
 ### Geriatrics Guidelines (AGS Beers 2023)
 - **Avoid medications**: Anticholinergics, benzodiazepines, meperidine, sliding scale insulin
 - **Deprescribing**: Review medications annually, deprescribe when risks outweigh benefits
