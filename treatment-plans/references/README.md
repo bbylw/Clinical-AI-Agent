@@ -1,4 +1,4 @@
-# Treatment Plans Skill
+# Clinical AI Agent
 
 ## Overview
 

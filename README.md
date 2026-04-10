@@ -1,6 +1,6 @@
-# Treatment Plans Skill
+# Clinical AI Agent
 
-AI-driven medical treatment plan generation skill for generating evidence-based, guideline-concordant treatment plans across all clinical specialties.
+An extremely mature, safe, clinical AI agent with real-time update capabilities for generating evidence-based, guideline-concordant treatment plans across all clinical specialties.
 
 ## Overview
 
@@ -13,6 +13,9 @@ This skill enables AI-powered generation of professional medical treatment plans
 - 📝 **Professional Templates**: Structured Markdown templates (one-page and standard formats)
 - 💊 **Medication Database**: Comprehensive drug information with dose ranges, interactions, and contraindications
 - 🔐 **Privacy Protection**: Built-in PHI detection and de-identification for HIPAA compliance
+- 🛡️ **Clinical Safety Mechanisms**: Comprehensive drug interaction checks, contraindication screening, and adverse event monitoring
+- 🔬 **Real-Time Verification**: Multiple independent searches for high-stakes decisions, guideline version verification
+- ⚕️ **Evidence-Based Practice**: Uncertainty protocols, clinical judgment requirements, and individualized treatment recommendations
 
 ## Installation
 
@@ -237,25 +240,20 @@ For issues or questions, please refer to the skill documentation in SKILL.md and
 
 ---
 
-# 治疗方案技能
+# 一个极其成熟、安全、具备实时更新能力的临床医学智能体
 
 AI驱动的医疗治疗方案生成技能，用于生成基于循证医学、符合指南的临床治疗方案，涵盖所有临床专科。
 
-## 概述
-
-本技能利用最新的临床指南（NCCN 2026、ADA 2026、ACC/AHA 2024、ESC 2023等）实现AI驱动的专业医疗治疗方案生成。提供结构化Markdown模板、全面的药物数据库、药物相互作用检查和自动PHI去识别功能，支持以患者为中心的护理计划制定。
-
-**核心特性:**
-- 🧠 **AI驱动生成**: 直接从临床记录或病例描述生成治疗方案
-- 📚 **最新指南**: 整合12+医学专科的最新循证指南
-- 🔍 **动态更新**: 使用搜索工具检索快速演进领域的最新FDA/NCCN/EMA/ESMO推荐
-- 📝 **专业模板**: 结构化Markdown模板（单页和标准格式）
-- 💊 **药物数据库**: 全面的药物信息，包括剂量范围、相互作用和禁忌症
-- 🔐 **隐私保护**: 内置PHI检测和去识别功能，符合HIPAA合规要求
-
-## 安装
-
-本技能作为标准AI技能包安装。无需额外依赖。
+**主要功能：**
+- 🧠 **AI驱动生成**：直接从临床笔记或病例描述生成治疗方案
+- 📚 **最新指南**：整合12+医学专科的最新循证指南
+- 🔍 **动态更新**：使用搜索工具检索快速演进领域的最新FDA/NCCN/EMA/ESMO推荐
+- 📝 **专业模板**：结构化Markdown模板（单页和标准格式）
+- 💊 **药物数据库**：全面的药物信息，包括剂量范围、相互作用和禁忌症
+- 🔐 **隐私保护**：内置PHI检测和去识别，符合HIPAA合规要求
+- 🛡️ **临床安全机制**：全面的药物相互作用检查、禁忌症筛查和不良事件监测
+- 🔬 **实时验证**：高风险决策的多次独立搜索、指南版本验证
+- ⚕️ **循证实践**：不确定性协议、临床判断要求和个体化治疗推荐
 
 **所需工具:**
 - Read / 读取
